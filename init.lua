@@ -97,6 +97,9 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
+-- Limit line length to 88 chars
+vim.opt.textwidth = 110
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
@@ -291,11 +294,12 @@ require('lazy').setup({
 
       -- Document existing key chains
       require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        { '', group = '[C]ode' },
+        { '', group = '[W]orkspace' },
+        { '', group = '[R]ename' },
+        { '', group = '[S]earch' },
+        { '', group = '[D]ocument' },
+        { '', desc = '', hidden = true, mode = { 'n', 'n', 'n', 'n', 'n' } },
       }
     end,
   },
